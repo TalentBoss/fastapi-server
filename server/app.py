@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 from server.routes.openai import router as OpenAIRouter
+from server.routes.rating import router as RatingRouter
 
 app = FastAPI()
 origin = [
@@ -32,3 +33,4 @@ def form_post(request: Request):
 
 
 app.include_router(OpenAIRouter, tags=['openai'], prefix='/openai')
+app.include_router(RatingRouter, tags=['rating'], prefix='/rating')
